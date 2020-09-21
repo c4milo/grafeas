@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'make build'
-                sh 'GO111MODULE=on CGO_ENABLED=0 go build go/v1beta1/main/main.go -o grafeas-server .'
+                sh 'GO111MODULE=on CGO_ENABLED=0 go build -o grafeas-server go/v1beta1/main/main.go'
             }
         }
         stage('Release') {
