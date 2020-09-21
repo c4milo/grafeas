@@ -9,8 +9,10 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'make build'
-                sh 'GO111MODULE=on CGO_ENABLED=0 go build -o grafeas-server go/v1beta1/main/main.go'
+                withEnv(['MYTOOL_HOME=/usr/local/mytool']) {
+                    sh 'make build'
+                    sh 'GO111MODULE=on CGO_ENABLED=0 go build -o grafeas-server go/v1beta1/main/main.go'
+                }
             }
         }
     }
