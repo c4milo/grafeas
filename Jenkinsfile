@@ -20,7 +20,7 @@ pipeline {
     post {
         success {
             archiveArtifacts artifacts: 'grafeas-server', fingerprint: true
-            grafeas address: 'http://127.0.0.1:8090', artifacts: [ 
+            grafeas address: 'http://127.0.0.1:8090', projectId: 'grafeas', artifacts: [ 
               'https://blha.com/blah.tar.gz': 'md5:blah',
             ]
         }
